@@ -27,6 +27,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Base64;
 import android.util.Log;
 
@@ -44,6 +45,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.lang.reflect.Field; // Restored for API Level 10-14 support by Corona Labs.
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -375,7 +377,18 @@ public final class FacebookSdk {
     public static Executor getExecutor() {
         synchronized (LOCK) {
             if (FacebookSdk.executor == null) {
-                FacebookSdk.executor = AsyncTask.THREAD_POOL_EXECUTOR;
+                if (Build.VERSION.SDK_INT < 11) {
+                    // Restored for API Level 10-14 support by Corona Labs.
+                    Executor executor = getAsyncTaskExecutor();
+                    if (executor == null) {
+                        executor = new ThreadPoolExecutor(
+                                DEFAULT_CORE_POOL_SIZE, DEFAULT_MAXIMUM_POOL_SIZE, DEFAULT_KEEP_ALIVE,
+                                TimeUnit.SECONDS, DEFAULT_WORK_QUEUE, DEFAULT_THREAD_FACTORY);
+                    }
+                    FacebookSdk.executor = executor;
+                } else {
+                    FacebookSdk.executor = AsyncTask.THREAD_POOL_EXECUTOR;
+                }
             }
         }
         return FacebookSdk.executor;
@@ -426,6 +439,32 @@ public final class FacebookSdk {
     public static Context getApplicationContext() {
         Validate.sdkInitialized();
         return applicationContext;
+    }
+
+    private static Executor getAsyncTaskExecutor() {
+        Field executorField = null;
+        try {
+            executorField = AsyncTask.class.getField("THREAD_POOL_EXECUTOR");
+        } catch (NoSuchFieldException e) {
+            return null;
+        }
+
+        Object executorObject = null;
+        try {
+            executorObject = executorField.get(null);
+        } catch (IllegalAccessException e) {
+            return null;
+        }
+
+        if (executorObject == null) {
+            return null;
+        }
+
+        if (!(executorObject instanceof Executor)) {
+            return null;
+        }
+
+        return (Executor) executorObject;
     }
 
     /**

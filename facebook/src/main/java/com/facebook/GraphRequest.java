@@ -1222,7 +1222,8 @@ public class GraphRequest {
         Validate.notEmptyAndContainsNoNulls(requests, "requests");
 
         GraphRequestAsyncTask asyncTask = new GraphRequestAsyncTask(requests);
-        asyncTask.executeOnExecutor(FacebookSdk.getExecutor(), null);
+        // Restored for API Level 10-14 support by Corona Labs.
+        asyncTask.executeOnSettingsExecutor();
         return asyncTask;
     }
 
@@ -1331,7 +1332,8 @@ public class GraphRequest {
 
         GraphRequestAsyncTask asyncTask = new GraphRequestAsyncTask(connection, requests);
         requests.setCallbackHandler(callbackHandler);
-        asyncTask.executeOnExecutor(FacebookSdk.getExecutor(), null);
+        // Restored for API Level 10-14 support by Corona Labs.
+        asyncTask.executeOnSettingsExecutor();
         return asyncTask;
     }
 
