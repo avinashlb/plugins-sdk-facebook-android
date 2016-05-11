@@ -18,21 +18,14 @@
     IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
     CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-<resources>
-    <!-- Standard facebook SDK dimens. -->
-    <dimen name="com_facebook_auth_dialog_corner_radius">2dp</dimen>
-    <!--Oversized radius for making sure that when two frames are overlayed the button
-    one does not stick out-->
-    <dimen name="com_facebook_auth_dialog_corner_radius_oversized">4dp</dimen>
-    <dimen name="com_facebook_button_corner_radius">2dp</dimen>
+    <item android:state_window_focused="false" android:drawable="@android:color/transparent" />
 
-    <!-- CardView additions for device login support -->
-    <!-- Default radius for CardView corners. -->
-    <dimen name="cardview_default_radius">2dp</dimen>
-    <!-- Elevation value to use for CardViews. Pre-L, it is equal to shadow size. -->
-    <dimen name="cardview_default_elevation">2dp</dimen>
-    <!-- Inset shadow for RoundRectDrawableWithShadow. It is used to avoid gaps between the card
-     and the shadow. -->
-    <dimen name="cardview_compat_inset_shadow">1dp</dimen>
-</resources>
+    <item android:state_focused="true"  android:state_enabled="false" android:state_pressed="true" android:drawable="@drawable/picker_list_selector_disabled" />
+    <item android:state_focused="true"  android:state_enabled="false"                              android:drawable="@drawable/picker_list_selector_disabled" />
+    <item android:state_focused="true"                                android:state_pressed="true" android:drawable="@drawable/picker_list_selector_background_transition" />
+    <item android:state_focused="false"                               android:state_pressed="true" android:drawable="@drawable/picker_list_selector_background_transition" />
+    <item android:state_focused="true"                                                             android:drawable="@drawable/picker_list_focused" />
+
+</selector>

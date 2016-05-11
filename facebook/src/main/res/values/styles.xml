@@ -20,6 +20,7 @@
 -->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Standard facebook SDK styles. -->
     <color name="com_facebook_blue">#3B5998</color>
     <color name="com_facebook_messenger_blue">#0084ff</color>
 
@@ -120,4 +121,19 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
+    <!-- CardView additions for device login support -->
+    <style name="CardView">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+    <style name="CardView.Light">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style>
+    <style name="CardView.Dark">
+        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
+    </style>
 </resources>

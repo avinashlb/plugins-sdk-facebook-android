@@ -37,4 +37,13 @@
     <string name="com_facebook_share_button_text">Share</string>
     <string name="com_facebook_send_button_text">Send</string>
     <string name="com_facebook_device_auth_instructions">Visit &lt;b&gt;facebook.com/device&lt;/b&gt;&lt;br /&gt;on your smartphone or computer&lt;br /&gt;and enter this code</string>
+
+    <!-- Picker additions from Scrumptious sample -->
+    <string name="picker_placepicker_subtitle_format">%1$s • %2$,d were here</string>
+    <string name="picker_placepicker_subtitle_catetory_only_format">%1$s</string>
+    <string name="picker_placepicker_subtitle_were_here_only_format">%1$,d were here</string>
+    <string name="picker_picker_done_button_text">Done</string>
+    <string name="choose_friends">Choose Friends</string>
+	<string name="nearby">Nearby</string>
 </resources>
+

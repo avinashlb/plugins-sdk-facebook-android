@@ -19,20 +19,10 @@
     CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 
-<resources>
-    <!-- Standard facebook SDK dimens. -->
-    <dimen name="com_facebook_auth_dialog_corner_radius">2dp</dimen>
-    <!--Oversized radius for making sure that when two frames are overlayed the button
-    one does not stick out-->
-    <dimen name="com_facebook_auth_dialog_corner_radius_oversized">4dp</dimen>
-    <dimen name="com_facebook_button_corner_radius">2dp</dimen>
-
-    <!-- CardView additions for device login support -->
-    <!-- Default radius for CardView corners. -->
-    <dimen name="cardview_default_radius">2dp</dimen>
-    <!-- Elevation value to use for CardViews. Pre-L, it is equal to shadow size. -->
-    <dimen name="cardview_default_elevation">2dp</dimen>
-    <!-- Inset shadow for RoundRectDrawableWithShadow. It is used to avoid gaps between the card
-     and the shadow. -->
-    <dimen name="cardview_compat_inset_shadow">1dp</dimen>
-</resources>
+<ImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/com_facebook_picker_image"
+    android:layout_width="50dip"
+    android:layout_height="50dip"
+    android:layout_gravity="center_vertical"
+    android:src="@drawable/profile_default_icon" />
