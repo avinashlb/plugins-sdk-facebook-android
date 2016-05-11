@@ -98,7 +98,7 @@ public class GraphRequest {
     private static final String FORMAT_JSON = "json";
     private static final String SDK_PARAM = "sdk";
     private static final String SDK_ANDROID = "android";
-    private static final String ACCESS_TOKEN_PARAM = "access_token";
+    public static final String ACCESS_TOKEN_PARAM = "access_token";
     private static final String BATCH_ENTRY_NAME_PARAM = "name";
     private static final String BATCH_ENTRY_OMIT_RESPONSE_ON_SUCCESS_PARAM =
             "omit_response_on_success";
@@ -1222,8 +1222,10 @@ public class GraphRequest {
         Validate.notEmptyAndContainsNoNulls(requests, "requests");
 
         GraphRequestAsyncTask asyncTask = new GraphRequestAsyncTask(requests);
+
         // Restored for API Level 10-14 support by Corona Labs.
         asyncTask.executeOnSettingsExecutor();
+
         return asyncTask;
     }
 
@@ -1332,8 +1334,10 @@ public class GraphRequest {
 
         GraphRequestAsyncTask asyncTask = new GraphRequestAsyncTask(connection, requests);
         requests.setCallbackHandler(callbackHandler);
+
         // Restored for API Level 10-14 support by Corona Labs.
         asyncTask.executeOnSettingsExecutor();
+
         return asyncTask;
     }
 
