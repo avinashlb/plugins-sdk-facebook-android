@@ -1,0 +1,1 @@
+The "src" symlink to the "java" folder in this directory is needed to get this Android Studio project to compile with the stock Ant build script in the Android SDK. Don't be a hero and try to remove it!
