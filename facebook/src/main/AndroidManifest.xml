@@ -20,6 +20,11 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.facebook">
+    package="com.facebook"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Force Custom Tabs Library to be used below API Level 15 -->
+    <uses-sdk tools:overrideLibrary="android.support.customtabs"/>
+
     <application/>
 </manifest>
