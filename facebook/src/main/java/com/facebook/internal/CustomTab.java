@@ -25,7 +25,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.customtabs.CustomTabsIntent;
+// CORONA: The custom tabs functionality is removed until the plugin uses the features that need it.
+//import android.support.customtabs.CustomTabsIntent;
 
 public class CustomTab {
 
@@ -42,8 +43,10 @@ public class CustomTab {
     }
 
     public void openCustomTab(Activity activity, String packageName) {
-        CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
-        customTabsIntent.intent.setPackage(packageName);
-        customTabsIntent.launchUrl(activity, uri);
+        // CORONA: The custom tabs functionality is removed until the plugin uses the features that need it.
+//        android.util.Log.d("Corona", "Facebook SDK -> Hey, we're using a Chrome Custom Tab!");
+//        CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
+//        customTabsIntent.intent.setPackage(packageName);
+//        customTabsIntent.launchUrl(activity, uri);
     }
 }
