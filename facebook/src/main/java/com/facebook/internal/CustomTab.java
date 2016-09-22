@@ -43,10 +43,10 @@ public class CustomTab {
     }
 
     public void openCustomTab(Activity activity, String packageName) {
-        // CORONA: The custom tabs functionality is removed until the plugin uses the features that need it.
-//        android.util.Log.d("Corona", "Facebook SDK -> Hey, we're using a Chrome Custom Tab!");
+//        // CORONA: The custom tabs functionality is removed until the plugin uses the features that need it.
 //        CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
 //        customTabsIntent.intent.setPackage(packageName);
+//        customTabsIntent.intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 //        customTabsIntent.launchUrl(activity, uri);
     }
 }
