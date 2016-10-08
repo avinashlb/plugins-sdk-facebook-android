@@ -28,6 +28,8 @@ import android.os.Bundle;
 // CORONA: The custom tabs functionality is removed until the plugin uses the features that need it.
 //import android.support.customtabs.CustomTabsIntent;
 
+import com.facebook.FacebookSdk;
+
 public class CustomTab {
 
     private Uri uri;
@@ -38,7 +40,7 @@ public class CustomTab {
         }
         uri = Utility.buildUri(
                 ServerProtocol.getDialogAuthority(),
-                ServerProtocol.getAPIVersion() + "/" + ServerProtocol.DIALOG_PATH + action,
+                FacebookSdk.getGraphApiVersion() + "/" + ServerProtocol.DIALOG_PATH + action,
                 parameters);
     }
 

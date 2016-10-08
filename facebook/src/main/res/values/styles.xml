@@ -114,7 +114,7 @@
         <item name="android:text">@string/com_facebook_share_button_text</item>
     </style>
 
-    <style name="com_facebook_auth_dialog" parent="android:style/Theme.Dialog">
+    <style name="com_facebook_auth_dialog" parent="@style/Theme.AppCompat.Dialog">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
@@ -136,4 +136,11 @@
     <style name="CardView.Dark">
         <item name="cardBackgroundColor">@color/cardview_dark_background</item>
     </style>
+
+    <style name="com_facebook_activity_theme" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>
